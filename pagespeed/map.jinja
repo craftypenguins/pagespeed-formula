@@ -1,0 +1,17 @@
+{% import_yaml "pagespeed/defaults.yaml" as defaults %}
+{% import_yaml "pagespeed/osmap.yaml" as osmap %}
+
+{% set os = salt['grains.filter_by'](
+  osmap,
+  merge=salt['pillar.get']('pagespeed:lookup', {}),
+)
+%}
+
+{% do defaults.pagespeed.update(os) %}
+
+{% set pagespeed = salt['pillar.get'](
+  'pagespeed',
+  default=defaults.pagespeed,
+  merge=True,
+)
+%}

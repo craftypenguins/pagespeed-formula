@@ -1,0 +1,6 @@
+pagespeed:
+  targets:
+    - https://www.craftypenguins.net
+    - https://www.cwkanban.com
+  apikey: blurg
+  listener: ":9271"
