@@ -2,4 +2,4 @@
 
 # THIS FILE IS MANAGED BY SALT
 
-ARGS="{%- if pagespeed.apikey %}-api-key {{ pagespeed.apikey }} {% endif -%}{%- if pagespeed.listener %}-listener {{ pagespeed.listener }} {% endif -%}-targets {%- for item in pagespeed.targets -%}{%- if loop.index == 1 %} {{ item }}{%- else -%},{{ item }} {% endif -%}{%- endfor -%}"
+ARGS="{%- if pagespeed.apikey is defined %}-api-key {{ pagespeed.apikey }} {% endif -%}{%- if pagespeed.listener %}-listener {{ pagespeed.listener }} {% endif -%}-targets {%- for item in pagespeed.targets -%}{%- if loop.index == 1 %} {{ item }}{%- else -%},{{ item }} {% endif -%}{%- endfor -%}"
